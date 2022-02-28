@@ -3,6 +3,7 @@ node{
     git 'https://github.com/testdemo1227/Demo-HelloJenkins'
   }
   stage('Package-compiling') {
-    sh 'mvn package'
+    def homemvn = tool name: 'Maven', type: 'maven'
+    sh '${homemvn}/bin/mvn package'
   }
 }
